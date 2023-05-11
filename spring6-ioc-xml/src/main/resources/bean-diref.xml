@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/util
+       http://www.springframework.org/schema/util/spring-util.xsd">
+    <bean id="student01" class="com.liuliang.spring6.iocxml.dimap.Student">
+        <property name="id" value="10001"/>
+        <property name="name" value="张三"/>
+        <property name="lessonList" ref="lessonList"/>
+        <property name="teacherMap" ref="teacherMap"/>
+    </bean>
+    <util:list id="lessonList">
+        <ref bean="lesson1"/>
+        <ref bean="lesson2"/>
+    </util:list>
+    <util:map id="teacherMap">
+        <entry key="10001" value-ref="teacher01"/>
+        <entry key="10002" value-ref="teacher02"/>
+    </util:map>
+    <bean id="lesson1" class="com.liuliang.spring6.iocxml.dimap.Lesson">
+        <property name="name" value="Java 开发"/>
+    </bean>
+    <bean id="lesson2" class="com.liuliang.spring6.iocxml.dimap.Lesson">
+        <property name="name" value="前端开发"/>
+    </bean>
+    <bean id="teacher01" class="com.liuliang.spring6.iocxml.dimap.Teacher">
+        <property name="id" value="10001"/>
+        <property name="name" value="张老师"/>
+    </bean>
+    <bean id="teacher02" class="com.liuliang.spring6.iocxml.dimap.Teacher">
+        <property name="id" value="10002"/>
+        <property name="name" value="李老师"/>
+    </bean>
+</beans>

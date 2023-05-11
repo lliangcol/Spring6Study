@@ -1,5 +1,6 @@
 package com.liuliang.spring6.iocxml.diobj;
 
+import org.junit.jupiter.api.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -14,5 +15,14 @@ public class TestEmployee {
 
         Employee employee2 = context.getBean("employee2", Employee.class);
         employee2.work();
+    }
+
+    @Test
+    public void TestDiArray() {
+        ApplicationContext context = new ClassPathXmlApplicationContext("bean-diarray.xml");
+        Employee employee = context.getBean("employee", Employee.class);
+        for (String s : employee.getHobby()) {
+            System.out.println(s);
+        }
     }
 }

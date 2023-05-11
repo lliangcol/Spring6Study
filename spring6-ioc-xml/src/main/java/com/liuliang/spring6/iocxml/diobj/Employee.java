@@ -1,9 +1,12 @@
 package com.liuliang.spring6.iocxml.diobj;
 
+import java.util.Arrays;
+
 public class Employee {
     private String name;
     private Integer age;
     private Department department;
+    private String[] hobby;
 
     public String getName() {
         return name;
@@ -29,8 +32,26 @@ public class Employee {
         this.department = department;
     }
 
+    public String[] getHobby() {
+        return hobby;
+    }
+
+    public void setHobby(String[] hobby) {
+        this.hobby = hobby;
+    }
+
     public void work() {
         System.out.println(name + " work...");
         department.info();
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                ", department=" + department +
+                ", hobby=" + Arrays.toString(hobby) +
+                '}';
     }
 }
