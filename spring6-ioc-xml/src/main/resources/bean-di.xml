@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!-- set 方法注入 -->
+    <bean id="book" class="com.liuliang.spring6.iocxml.di.Book">
+        <!-- value 包含 xml 实体时，可以进行转义处理，也可以使用 CDATA 节  -->
+        <!-- CDATA 中的 C 代表 Character, 是文本、字符的含义，CDATA 就表示纯文本数据 -->
+        <!-- XML 解析器看到 CDATA 节就知道这里是纯文本，就不会当作 XML 标签或属性来解析 -->
+        <property name="isbn">
+            <value><![CDATA[ISBN-<001>]]></value>
+        </property>
+        <property name="name" value="Java"/>
+        <property name="author" value="sun"/>
+        <!-- null 值的处理 -->
+        <property name="remark">
+            <null/>
+        </property>
+    </bean>
+    <!-- 构造方法注入 -->
+    <bean id="book2" class="com.liuliang.spring6.iocxml.di.Book">
+        <constructor-arg name="name" value="Java"/>
+        <constructor-arg name="author" value="sun"/>
+    </bean>
+</beans>

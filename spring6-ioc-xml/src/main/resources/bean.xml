@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!-- User 对象 -->
+    <bean id="user" class="com.liuliang.spring6.iocxml.User"></bean>
+    <!-- 当根据类型获取 bean 时，要求 IoC 容器中指定类型的 bean 有且只能有一个 -->
+    <!-- NoUniqueBeanDefinitionException: No qualifying bean of type '{class name}' available: expected single matching bean but found 2: user,user1 -->
+    <!--<bean id="user1" class="com.liuliang.spring6.iocxml.User"></bean>-->
+    <bean id="truck" class="com.liuliang.spring6.iocxml.bean.Truck"></bean>
+    <bean id="tank" class="com.liuliang.spring6.iocxml.bean.Tank"></bean>
+</beans>
