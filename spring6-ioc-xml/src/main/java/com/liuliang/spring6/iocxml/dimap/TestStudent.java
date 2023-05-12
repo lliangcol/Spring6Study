@@ -14,7 +14,14 @@ public class TestStudent {
     @Test
     public void testRef() {
         ApplicationContext context = new ClassPathXmlApplicationContext("bean-diref.xml");
-        Student student1 = context.getBean("student01", Student.class);
-        student1.info();
+        Student student = context.getBean("student01", Student.class);
+        student.info();
+    }
+
+    @Test
+    public void testP() {
+        ApplicationContext context = new ClassPathXmlApplicationContext("bean-diref.xml");
+        Student student = context.getBean("student02", Student.class);
+        student.info();
     }
 }
